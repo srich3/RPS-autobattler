@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS AutoBattler</title>
+</head>
+<body>
+    <button onclick="getComputerChoice()">Click me</button>
+</body>
+
+<script>
+    console.log("Hello World")
+    function getComputerChoice(){
+    const choices = ['rock', 'paper', 'scissors'];
+    const randomNumber = Math.random() * 3;
+    const handChoice = Math.floor(randomNumber);
+
+    return choices[handChoice];    
+    }
+</script>
+</html>
