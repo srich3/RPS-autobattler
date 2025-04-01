@@ -31,18 +31,20 @@
 </head>
 <body>
     <div id="playerButtons">  
-        <button class="btn" onclick="pickRock()">Rock</button>
-        <button class="btn" onclick="pickPaper()">Paper</button>
-        <button class="btn" onclick="pickScissors()">Scissors</button>
+        <button class="btn" >Rock</button>
+        <button class="btn" >Paper</button>
+        <button class="btn" >Scissors</button>
 
     </div>
+    <div>   
     <button onclick="getComputerChoice()">Ship It</button>
-    
+</div>
 </body>
 
 <script>
-// Get the container element
-var btnContainer = document.getElementById("playerButtons");
+
+ // Get the container element
+var btnContainer = document.getElementById("myDIV");
 
 // Get all buttons with class="btn" inside the container
 var btns = btnContainer.getElementsByClassName("btn");
@@ -51,24 +53,16 @@ var btns = btnContainer.getElementsByClassName("btn");
 for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", function() {
     var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
+
+    // If there's no active class
+    if (current.length > 0) {
+      current[0].className = current[0].className.replace(" active", "");
+    }
+
+    // Add the active class to the current/clicked button
     this.className += " active";
-    console.log(this.className);
   });
 } 
-    function pickRock(){
-        console.log('You picked Rock');
-        const playerChoice = 'rock';
-
-    }
-    function pickPaper(){
-        console.log('You picked Paper');
-        const playerChoice = 'paper';
-    }
-    function pickScissors(){
-        console.log('You picked Scissors');
-        const playerChoice = 'scissors';
-    }
 
     function getComputerChoice(){
     const choices = ['rock', 'paper', 'scissors'];
