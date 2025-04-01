@@ -4,19 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPS AutoBattler</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+ /* Style the buttons */
+ .btn {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* Style the active class (and buttons on mouse-over) */
+.active, .btn:hover {
+  background-color: #666;
+  color: white;
+} 
+    </style>
 </head>
 <body>
-    <button onclick="getComputerChoice()">Click me</button>
+    <div>  
+        <button class="btn" onclick="pickRock()">Rock</button>
+        <button class="btn" onclick="pickPaper()">Paper</button>
+        <button class="btn" onclick="pickScissors()">Scissors</button>
+
+    </div>
+    <button onclick="getComputerChoice()">Ship It</button>
+    
 </body>
 
 <script>
-    console.log("Hello World")
+// Get the container element
+var btnContainer = document.getElementById("myDIV");
+
+// Get all buttons with class="btn" inside the container
+var btns = btnContainer.getElementsByClassName("btn");
+
+// Loop through the buttons and add the active class to the current/clicked button
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+} 
+    function pickRock(){
+        console.log('You picked Rock');
+        const playerChoice = 'rock';
+
+    }
+    function pickPaper(){
+        console.log('You picked Paper');
+        const playerChoice = 'paper';
+    }
+    function pickScissors(){
+        console.log('You picked Scissors');
+        const playerChoice = 'scissors';
+    }
+
     function getComputerChoice(){
     const choices = ['rock', 'paper', 'scissors'];
     const randomNumber = Math.random() * 3;
     const handChoice = Math.floor(randomNumber);
-
-    return choices[handChoice];    
+    const computerChoice = choices[handChoice];
+    console.log('Computer picked: ' + computerChoice);
+    const playerChoice = document.querySelector('button:active').textContent.toLowerCase();   
     }
 </script>
 </html>
