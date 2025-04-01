@@ -30,7 +30,7 @@
     </style>
 </head>
 <body>
-    <div>  
+    <div id="playerButtons">  
         <button class="btn" onclick="pickRock()">Rock</button>
         <button class="btn" onclick="pickPaper()">Paper</button>
         <button class="btn" onclick="pickScissors()">Scissors</button>
@@ -42,7 +42,7 @@
 
 <script>
 // Get the container element
-var btnContainer = document.getElementById("myDIV");
+var btnContainer = document.getElementById("playerButtons");
 
 // Get all buttons with class="btn" inside the container
 var btns = btnContainer.getElementsByClassName("btn");
